@@ -40,11 +40,11 @@ ECHO/
 ECHO Available (connected) interfaces:
 ECHO/
 SET /a count=1
-FOR /f "tokens=1,2,3*" %%i in ('netsh int show interface') DO (
+FOR /f "tokens=1,2,3*" %%i in ('netsh int show int') DO (
 	IF %%j equ Connected (
 		SET /a count+=1
 		SET "interface!count!=%%l"
-		ECHO   Interface !count!: !interface!
+		ECHO   Interface !count!: %%l
 	)
 )
 
